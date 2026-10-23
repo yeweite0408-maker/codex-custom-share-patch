@@ -1,0 +1,31 @@
+codex-wallpaper-settings {
+  display:block;width:100%;box-sizing:border-box;margin-block:20px;padding:20px 0;
+  border-top:1px solid var(--color-border-subtle,rgb(128 128 128 / 24%));
+  color:var(--color-text,#ddd);font:13px/1.6 var(--font-family-sans,'Segoe UI',sans-serif);
+}
+codex-wallpaper-settings h3 { margin:0 0 7px;font-size:15px;font-weight:600;color:inherit; }
+codex-wallpaper-settings p { margin:7px 0; }
+codex-wallpaper-settings .wallpaper-description { color:var(--color-text-secondary,#999);font-size:12px; }
+codex-wallpaper-settings .wallpaper-setting-row { display:flex;align-items:center;justify-content:space-between;gap:16px;margin:20px 0;cursor:pointer; }
+codex-wallpaper-settings input[type=checkbox] { appearance:auto!important;width:18px;height:18px;flex-shrink:0;accent-color:#4388e9;cursor:pointer; }
+codex-wallpaper-settings .wallpaper-picker-row { display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-block:15px 9px; }
+codex-wallpaper-settings button {
+  appearance:none;border:1px solid color-mix(in srgb,currentColor 28%,transparent);border-radius:8px;
+  background:color-mix(in srgb,currentColor 10%,transparent);color:inherit;
+  padding:6px 11px;font:inherit;cursor:pointer;-webkit-app-region:no-drag;
+}
+codex-wallpaper-settings button:hover:not(:disabled) { background:color-mix(in srgb,currentColor 18%,transparent); }
+codex-wallpaper-settings button:disabled { opacity:.5;cursor:wait; }
+codex-wallpaper-settings button:focus-visible,codex-wallpaper-settings input:focus-visible { outline:2px solid #5796ff;outline-offset:3px; }
+codex-wallpaper-settings .wallpaper-current { overflow-wrap:anywhere;color:var(--color-text-secondary,#aaa);font-size:12px; }
+codex-wallpaper-settings .wallpaper-fields { display:flex;flex-direction:column;gap:16px;margin-top:23px; }
+codex-wallpaper-settings .wallpaper-range-row { display:grid;grid-template-columns:125px minmax(90px,1fr) 55px;align-items:center;gap:14px; }
+codex-wallpaper-settings input[type=range] { appearance:none;height:16px;background:transparent;min-width:0;width:100%;margin:0;accent-color:#4388e9;cursor:pointer;-webkit-app-region:no-drag; }
+codex-wallpaper-settings .wallpaper-range-value { color:var(--color-text-secondary,#aaa);font-variant-numeric:tabular-nums;text-align:right; }
+codex-wallpaper-settings .wallpaper-error { color:var(--color-text-danger,#e78b88);overflow-wrap:anywhere; }
+codex-wallpaper-settings .wallpaper-error[hidden] { display:none; }
+codex-wallpaper-settings .wallpaper-status { min-height:20px;color:var(--color-text-secondary,#999);font-size:12px; }
+@media(max-width:560px) { codex-wallpaper-settings .wallpaper-range-row { grid-template-columns:105px minmax(65px,1fr) 45px;gap:8px; } }
+
+codex-wallpaper-settings input[type=range]::-webkit-slider-runnable-track { height:4px;border-radius:3px;background:color-mix(in srgb,currentColor 28%,transparent); }
+codex-wallpaper-settings input[type=range]::-webkit-slider-thumb { appearance:none;width:12px;height:12px;border-radius:50%;background:#4388e9;margin-top:-4px; }

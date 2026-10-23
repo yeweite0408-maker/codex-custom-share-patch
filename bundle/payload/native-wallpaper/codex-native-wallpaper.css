@@ -1,0 +1,128 @@
+/* Window-wide media; enabled only after a local video frame is available. */
+#codex-native-wallpaper {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none !important;
+  user-select: none;
+}
+html[data-codex-native-wallpaper="ready"] body {
+  isolation: isolate;
+  background: transparent !important;
+}
+html[data-codex-native-wallpaper="ready"] #codex-native-wallpaper { opacity: 1; }
+#codex-native-wallpaper > :is(video,img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(var(--codex-wallpaper-brightness,1));
+  opacity: var(--codex-wallpaper-opacity,1);
+  pointer-events: none !important;
+}
+#codex-native-wallpaper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--color-token-main-surface-primary, light-dark(#fafafa, #151515)) clamp(0%,calc(var(--codex-wallpaper-overlay,64%) * 1.16),100%), transparent),
+    color-mix(in srgb, var(--color-token-main-surface-primary, light-dark(#fafafa, #151515)) calc(var(--codex-wallpaper-overlay,64%) * .85), transparent) 65%,
+    color-mix(in srgb, var(--color-token-main-surface-primary, light-dark(#fafafa, #151515)) var(--codex-wallpaper-overlay,64%), transparent));
+  pointer-events: none !important;
+}
+/* Layout surfaces become clear; controls retain their own native surfaces. */
+html[data-codex-native-wallpaper="ready"] :is(
+  [data-codex-wallpaper-surface="clear"],
+  #root,
+  #app,
+  [data-app-shell-frame],
+  [data-app-shell-main-surface],
+  [data-app-shell-page-surface],
+  [data-app-shell-feature-navigation],
+  [data-app-shell-application-menu-bar],
+  [data-app-shell-responsive-sidebar],
+  [data-app-shell-sidebar],
+  main.main-surface,
+  main[role="main"],
+  .thread-scroll-container,
+  [class*="_Layout_"],
+  [class*="_Workspace_"],
+  [class*="_WorkspaceContent_"],
+  [class*="_MainContentSurface_"],
+  [class*="_MainContentViewport_"],
+  [class*="_MainContentFrame_"],
+  [class*="_MainContentClip_"],
+  [class*="_PageSurface_"],
+  [class*="_FullHeightPageSurface_"],
+  [class*="_PageSurfaceLayout_"],
+  [class*="_FullHeightPageSurfaceLayout_"],
+  [class*="_LeftPanel_"],
+  [class*="_ResponsiveLeftPanel_"],
+  [class*="_FloatingHeader_"],
+  [class*="_ApplicationMenuTopBar_"],
+  [class~="bg-token-side-bar-background"],
+  [class~="bg-token-sidebar-surface-primary"],
+  [class~="bg-sidebar"],
+  [class~="bg-sidebar-surface-primary"]
+) { background-color: transparent !important; background-image: none !important; }
+html[data-codex-native-wallpaper="ready"] :is(
+  [class*="_WorkspaceContent_"],
+  [class*="_MainContentSurface_"],
+  [class*="_PageSurface_"]
+)::before { background: transparent !important; }
+html[data-codex-native-wallpaper="ready"] [class~="bg-token-main-surface-primary"]:has(
+  .thread-scroll-container, [data-testid="home-icon"], [data-app-shell-main-surface]
+) { background: transparent !important; }
+/* Native thread fades paint their own opaque surface above the video. These
+   are decoration layers, separate from the composer and toolbar controls. */
+html[data-codex-native-wallpaper="ready"] :is(
+  [data-thread-scroll-footer],
+  [data-app-shell-main-titlebar],
+  [data-app-shell-page-header],
+  ._background_106nk_2,
+  ._background_1u6c1_1,
+  ._floatingHeader_1u6c1_2
+) {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+html[data-codex-native-wallpaper="ready"] ._MainContentTopFade_etoz9_2 {
+  visibility: hidden !important;
+}
+html[data-codex-native-wallpaper="ready"] [data-app-shell-header-toolbar] > :not(button):not([role="button"]) {
+  background-color: transparent !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-codex-wallpaper-kind="video"] #codex-native-wallpaper { display: none !important; }
+}
+
+/* Native composer materials: change the surface, never the opacity of text. */
+html[data-codex-native-wallpaper="ready"] {
+  --codex-composer-glass-opacity: var(--codex-user-composer-opacity,52%);
+  --codex-composer-toolbar-opacity: var(--codex-user-toolbar-opacity,40%);
+  --codex-composer-glass-blur: var(--codex-user-composer-blur,22px);
+  --codex-composer-glass-tint: var(--color-background-composer-surface, var(--color-surface-elevated-secondary, #303030));
+}
+html[data-codex-native-wallpaper="ready"] [class*="_ComposerLayoutRoot_"]:not([data-composer-surface-variant="inline"]):not([data-composer-surface-variant="document"]):not([data-composer-drag-active]) {
+  --composer-layout-surface-background: color-mix(in srgb, var(--codex-composer-glass-tint) var(--codex-composer-glass-opacity), transparent) !important;
+  --composer-layout-surface-backdrop-filter: blur(var(--codex-composer-glass-blur)) saturate(118%) !important;
+  --composer-layout-surface-shadow: inset 0 0 0 1px rgb(255 255 255 / 11%) !important;
+}
+html[data-codex-native-wallpaper="ready"] [data-codex-composer-glass="utility"] {
+  background-color: color-mix(in srgb, var(--codex-composer-glass-tint) var(--codex-composer-toolbar-opacity), transparent) !important;
+  background-image: none !important;
+  -webkit-backdrop-filter: blur(var(--codex-composer-glass-blur)) saturate(118%) !important;
+  backdrop-filter: blur(var(--codex-composer-glass-blur)) saturate(118%) !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 8%);
+}
+@media (prefers-reduced-transparency: reduce) {
+  html[data-codex-native-wallpaper="ready"] {
+    --codex-composer-glass-opacity: 96%;
+    --codex-composer-toolbar-opacity: 96%;
+    --codex-composer-glass-blur: 0px;
+  }
+}

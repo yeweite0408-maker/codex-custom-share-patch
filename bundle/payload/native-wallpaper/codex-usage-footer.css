@@ -1,0 +1,18 @@
+codex-usage-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 14px;
+  margin: 9px 0 5px;
+  padding: 5px 0;
+  color: var(--color-text-secondary, #aaa);
+  font: 11px/1.6 var(--font-family-sans, 'Segoe UI', sans-serif);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  user-select: text;
+  -webkit-app-region: no-drag;
+  max-width: 100%;
+}
+codex-usage-footer[hidden] { display: none !important; }
+codex-usage-footer .codex-usage-item { white-space: nowrap; }
+codex-usage-footer .codex-usage-label { opacity: .8; }

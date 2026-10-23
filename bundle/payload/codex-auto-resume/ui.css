@@ -1,0 +1,17 @@
+codex-auto-resume-toggle { display:inline-flex;align-items:center;flex-shrink:0;max-width:100%;-webkit-app-region:no-drag; }
+codex-auto-resume-toggle[hidden] { display:none!important; }
+codex-auto-resume-toggle .codex-auto-resume-button {
+  appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-height:28px;padding:3px 8px;border:1px solid transparent;border-radius:8px;
+  background:transparent;color:var(--color-text-secondary,#aaa);font:11px/1.4 var(--font-family-sans,'Segoe UI',sans-serif);
+  white-space:nowrap;cursor:pointer;user-select:none;-webkit-app-region:no-drag;
+}
+codex-auto-resume-toggle .codex-auto-resume-button:hover { background:rgb(128 128 128 / 14%); }
+codex-auto-resume-toggle .codex-auto-resume-button:focus-visible { outline:2px solid #5796ff;outline-offset:2px; }
+codex-auto-resume-toggle .codex-auto-resume-track { position:relative;width:23px;height:13px;border-radius:8px;background:rgb(128 128 128 / 40%); }
+codex-auto-resume-toggle .codex-auto-resume-dot { position:absolute;top:2px;left:2px;width:9px;height:9px;border-radius:50%;background:#fff; }
+codex-auto-resume-toggle [data-enabled="true"] .codex-auto-resume-track { background:#337ad8; }
+codex-auto-resume-toggle [data-enabled="true"] .codex-auto-resume-dot { transform:translateX(10px); }
+codex-auto-resume-toggle [data-state="paused"],codex-auto-resume-toggle [data-state="storage-error"] { color:#d49b4a; }
+codex-auto-resume-toggle .codex-auto-resume-status { opacity:.8; }
+@media (max-width:640px) { codex-auto-resume-toggle .codex-auto-resume-status { display:none; } }

@@ -1,0 +1,104 @@
+{
+  "name": "Codex Custom Share Patch",
+  "supportedVersion": "26.1013.40934",
+  "includesOfficialBinaries": false,
+  "includesUserData": false,
+  "includesWallpaper": false,
+  "files": [
+    {
+      "path": "Install.cmd",
+      "bytes": 260,
+      "sha256": "a40f0bda197c07e69f19e8a1fc33411ff003c587a17d4f9e85cc72d8d5371efe"
+    },
+    {
+      "path": "Install.ps1",
+      "bytes": 11441,
+      "sha256": "2ed25b5f3251c8b0a0fd23e94f6cab35924752a26cfda52bb12365dc3fc474a3"
+    },
+    {
+      "path": "payload/build_native_wallpaper.py",
+      "bytes": 15861,
+      "sha256": "0569f01006ac808294431eeba5560cccf2861abf98de5ffa509d3953c9223131"
+    },
+    {
+      "path": "payload/codex-auto-resume/engine.cjs",
+      "bytes": 19385,
+      "sha256": "012d73ead3d2b5d0836a9ac48dc6c7af9dd8d8307ab52f2ae207226e82bc83d9"
+    },
+    {
+      "path": "payload/codex-auto-resume/native-adapter.cjs",
+      "bytes": 4765,
+      "sha256": "f702ac93d1566196952dd3105642cd3bf485acb10899f0aa56e293ef9c5d47b1"
+    },
+    {
+      "path": "payload/codex-auto-resume/ui.css",
+      "bytes": 1603,
+      "sha256": "bdc79ad2201818d7497ec5f4c8ea2001c822162864957b4f6c005279be37298f"
+    },
+    {
+      "path": "payload/codex-auto-resume/ui.js",
+      "bytes": 7223,
+      "sha256": "0635a2e515562fabe6735a11a7b524300e64eb2de1d2a9bae0f92b87cc7ec02b"
+    },
+    {
+      "path": "payload/codex-wallpaper-settings/controller.js",
+      "bytes": 13244,
+      "sha256": "f1fb4804a540be2cb428e3fff9cd37790e4c92994cd92f518590bc785c26b373"
+    },
+    {
+      "path": "payload/codex-wallpaper-settings/settings.css",
+      "bytes": 3077,
+      "sha256": "253f5e342a1e912a02e802915e54ccce0ea6dfd1274895bda354085787640475"
+    },
+    {
+      "path": "payload/codex-wallpaper-settings/settings.js",
+      "bytes": 7244,
+      "sha256": "ade5dcdbc2455b939c1e7ea530916155a0ab3c86e942de9afd9d2bb67abeb545"
+    },
+    {
+      "path": "payload/inspect_asar.py",
+      "bytes": 1734,
+      "sha256": "4df860f8bb244c01f8fdb80ee3a38d09f91b82c143d0d773c4177f165ee55854"
+    },
+    {
+      "path": "payload/native-wallpaper/codex-native-wallpaper.css",
+      "bytes": 5610,
+      "sha256": "21661eec8d6bcd664e5e9cd2a066b2c3d450dc11ee447e96a6fd7c9239b2a599"
+    },
+    {
+      "path": "payload/native-wallpaper/codex-native-wallpaper.js",
+      "bytes": 9441,
+      "sha256": "e550b08b662d213bc127c54bb9c0df758e53bc30060f6c229af35ac85c2e4d3f"
+    },
+    {
+      "path": "payload/native-wallpaper/codex-usage-footer.css",
+      "bytes": 552,
+      "sha256": "88205199f94008e7b5622dc6f056b9739a8eacb96682d0f05cc536b690826cab"
+    },
+    {
+      "path": "payload/native-wallpaper/codex-usage-footer.js",
+      "bytes": 10758,
+      "sha256": "edf7a48bf3c5d21e773aafca294a6925e36efc2a395e9e6ffe4bb28db920e4cd"
+    },
+    {
+      "path": "payload/patch_auto_resume.py",
+      "bytes": 2062,
+      "sha256": "f97803fd336a660e892e980c510de75571c518e348f8f12199f275c0b73b4de8"
+    },
+    {
+      "path": "payload/patch_usage_footer.py",
+      "bytes": 2252,
+      "sha256": "1498b9b04d61894e0c91718b944cc4c8375055de8b8a702a147bcca6efad139d"
+    },
+    {
+      "path": "payload/patch_wallpaper_settings.py",
+      "bytes": 371,
+      "sha256": "910019595f905b3f50d2cc1f51ef796cb74b81297fbe2ed5e73f4622c2f65d93"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4131,
+      "sha256": "f197cecbfce8fc3612acc86fb83a87b88956efc29ca453d4a4f8f1d1d0f6d698"
+    }
+  ]
+}

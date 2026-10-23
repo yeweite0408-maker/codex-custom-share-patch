@@ -1,0 +1,17 @@
+**/__pycache__/
+*.pyc
+UserData/
+.codex/
+.env
+.env.*
+auth.json
+*.asar
+*.exe
+*.dll
+*.mp4
+*.webm
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.log
